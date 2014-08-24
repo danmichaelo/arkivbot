@@ -3,3 +3,5 @@ public_html/status
 *.log
 .pywikibot
 .cache
+ArkivBot.err
+ArkivBot.out

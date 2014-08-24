@@ -1,2 +1,2 @@
 MAILTO=""
-0 1 * * * jsub /data/project/arkivbot/run.job
+0 1 * * * jsub -N ArkivBot /data/project/arkivbot/run.job
