@@ -1,59 +1,64 @@
 <!DOCTYPE html>
-<html lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>ArkivBot status</title>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>ArkivBot status</title>
 
-        <!-- Bootstrap CSS -->
-        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+		<!-- Bootstrap CSS -->
+		<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
 
-    </head>
-    <body>
-        <h1 class="text-center">ArkivBot-status</h1>
-        <p class="text-center">
-            <a href="//no.wikipedia.org/wiki/Bruker:ArkivBot">
-                <em class="glyphicon glyphicon-hand-right"></em>
-                User page @nowiki
-            </a>
-            &nbsp;&nbsp;
-            <a href="//no.wikipedia.org/wiki/Spesial:Bidrag/ArkivBot">
-                <em class="glyphicon glyphicon-hand-right"></em>
-                Contributions @nowiki
-            </a>
-        </p>
+	</head>
+	<body>
+		<h1 class="text-center">ArkivBot-status</h1>
+		<p class="text-center">
+			<a href="//no.wikipedia.org/wiki/Bruker:ArkivBot">
+				<em class="glyphicon glyphicon-hand-right"></em>
+				User page @nowiki
+			</a>
+			&nbsp;&nbsp;
+			<a href="//no.wikipedia.org/wiki/Spesial:Bidrag/ArkivBot">
+				<em class="glyphicon glyphicon-hand-right"></em>
+				Contributions @nowiki
+			</a>
+			&nbsp;&nbsp;
+			<a href="//github.com/danmichaelo/arkivbot">
+				<em class="glyphicon glyphicon-hand-right"></em>
+				Source @github
+			</a>
+		</p>
 
-<p>Archiving in progress? <span id="inp"></span></p>
+		<p>
+			Archiving in progress? <span id="inp"></span>
+		</p>
 
-        <pre>
-            Please wait...
-        </pre>
+		<pre>
+			Please wait...
+		</pre>
 
-        <!-- jQuery -->
-        <script src="//code.jquery.com/jquery.js"></script>
-        <script>
+		<script src="//code.jquery.com/jquery.js"></script>
+		<script>
 
-            $(function() {
+			$(function() {
+				function load() {
+					$.get('out?q=' + Math.random(), function(d) {
+						$('pre').text(d);
 
-                function load() {
-                    $.get('out?q=' + Math.random(), function(d) {
-                        $('pre').text(d);
-
-                        $.get('status?q=' + Math.random(), function(s) {
-                            s = s.trim();
-				if (s == 'true') {
-                    $('#inp').text('Yes');
-					setTimeout(load, 2000);
-				} else {
-                    $('#inp').text('No');
-}
+						$.get('status?q=' + Math.random(), function(s) {
+							s = s.trim();
+							if (s == 'true') {
+								$('#inp').text('Yes');
+								setTimeout(load, 2000);
+							} else {
+								$('#inp').text('No');
+							}
+						});
+					});
+				}
+				load();
 			});
-                    });
-		}
-		load();
 
-            });
-        </script>
-    </body>
+		</script>
+	</body>
 </html>
