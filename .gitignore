@@ -1,0 +1,5 @@
+public_html/out
+public_html/status
+*.log
+.pywikibot
+.cache

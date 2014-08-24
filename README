@@ -1,0 +1,9 @@
+Pywikibot archiving talk pages at Norwegian Bokmål Wikipedia
+
+```
+crontab ukbot.crontab
+```
+
+* https://no.wikipedia.org/wiki/Bruker:ArkivBot
+* https://tools.wmflabs.org/arkivbot/
+
