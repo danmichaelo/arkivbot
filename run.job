@@ -3,7 +3,7 @@
 # Note that main.log is stored in ~/.pywikibot/logs/
 
 cd /data/project/arkivbot
-export PYTHONPATH=/shared/pywikipedia/core:/shared/pywikipedia/core/externals/httplib2:/shared/pywikipedia/core/scripts
+export PYTHONPATH=/shared/pywikipedia/core:/shared/pywikipedia/core/externals:/shared/pywikipedia/core/scripts
 
 LOG=public_html/out
 STATUS=public_html/status
