@@ -5,3 +5,5 @@ public_html/status
 .cache
 ArkivBot.err
 ArkivBot.out
+pywikibot
+ENV

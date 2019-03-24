@@ -1,9 +1,19 @@
-#!/bin/sh
+#!/bin/bash
 
 # Note that main.log is stored in ~/.pywikibot/logs/
 
 cd /data/project/arkivbot
-export PYTHONPATH=/shared/pywikipedia/core:/shared/pywikipedia/core/externals:/shared/pywikipedia/core/scripts
+
+# Update dependencies
+./update_deps.sh
+
+# Activate virtualenv
+. ENV/bin/activate
+
+# Set Pywikibot path
+# PYWIKI=/shared/pywikipedia/core
+PYWIKI=/data/project/arkivbot/pywikibot
+export PYTHONPATH=$PYWIKI/core:$PYWIKI/externals:$PYWIKI/scripts
 
 LOG=public_html/out
 STATUS=public_html/status
@@ -14,7 +24,8 @@ echo 'true' > $STATUS
 echo ----------------------------------------------------------- >> $LOG
 echo `date` : Bot started >> $LOG
 echo ----------------------------------------------------------- >> $LOG
-stdbuf -o 0 python /shared/pywikipedia/core/scripts/archivebot.py -log:main.log "Bruker:ArkivBot/autoarkivering" 2>&1 | tee -a $LOG
+stdbuf -o 0 python $PYWIKI/scripts/archivebot.py -lang:no -log:main.log "Bruker:ArkivBot/autoarkivering" 2>&1 | tee -a $LOG
+stdbuf -o 0 python $PYWIKI/scripts/archivebot.py -lang:se -log:main.log "Geavaheaddji:ArkivBot/config" 2>&1 | tee -a $LOG
 echo ----------------------------------------------------------- >> $LOG
 echo `date` : Bot finished >> $LOG
 echo ----------------------------------------------------------- >> $LOG
