@@ -25,6 +25,7 @@ echo ----------------------------------------------------------- >> $LOG
 echo `date` : Bot started >> $LOG
 echo ----------------------------------------------------------- >> $LOG
 stdbuf -o 0 python $PYWIKI/scripts/archivebot.py -lang:no -log:main.log "Bruker:ArkivBot/autoarkivering" 2>&1 | tee -a $LOG
+stdbuf -o 0 python $PYWIKI/scripts/archivebot.py -lang:se -log:main.log "Geavaheaddji:ArkivBot/config" 2>&1 | tee -a $LOG
 echo ----------------------------------------------------------- >> $LOG
 echo `date` : Bot finished >> $LOG
 echo ----------------------------------------------------------- >> $LOG
