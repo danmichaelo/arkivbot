@@ -2,6 +2,7 @@ public_html/out
 public_html/status
 *.log
 .pywikibot
+.python_history
 .cache
 ArkivBot.err
 ArkivBot.out
