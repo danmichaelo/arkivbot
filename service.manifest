@@ -1,6 +1,6 @@
-# This file is used by toollabs infrastructure.
+# This file is used by Toolforge infrastructure.
 # Please do not edit manually at this time.
-backend: gridengine
-distribution: debian
-version: 2
-web: lighttpd
+# Sun Apr  9 19:24:41 2023
+backend: kubernetes
+version: 4
+web: php7.4

@@ -2,23 +2,28 @@
 
 # Note that main.log is stored in ~/.pywikibot/logs/
 
-cd /data/project/arkivbot
-
-# Update dependencies
-./update_deps.sh
-
 # Activate virtualenv
 . ENV/bin/activate
 
+# Update pywikibot
+echo "📦 Updating pywikibot"
+cd pywikibot && git pull && cd ..
+
+echo "🏡 Working dir: $(pwd)"
+
 # Set Pywikibot path
 # PYWIKI=/shared/pywikipedia/core
-PYWIKI=/data/project/arkivbot/pywikibot
-export PYTHONPATH=$PYWIKI/core:$PYWIKI/externals:$PYWIKI/scripts
+PYWIKI=$(pwd)/pywikibot
+export PYTHONPATH=$PYWIKI/scripts:$PYTHONPATH
 
 LOG=public_html/out
 STATUS=public_html/status
 rm $LOG
 touch $LOG
+
+echo "------------------------------------------"
+python $PYWIKI/pwb.py version
+echo "------------------------------------------"
 
 echo 'true' > $STATUS
 echo ----------------------------------------------------------- >> $LOG

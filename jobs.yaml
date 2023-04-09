@@ -1,0 +1,8 @@
+---
+# Ref: https://wikitech.wikimedia.org/wiki/Help:Toolforge/Jobs_framework
+- name: arkivbot
+  command: ./run.sh
+  image: python3.9
+  schedule: "0 5 * * *"
+  emails: onfailure
+
