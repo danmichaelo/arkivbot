@@ -7,7 +7,7 @@
 
 # Update pywikibot
 echo "📦 Updating pywikibot"
-cd pywikibot && git pull && cd ..
+cd pywikibot && git pull && pip install -r requirements.txt && cd ..
 
 echo "🏡 Working dir: $(pwd)"
 
